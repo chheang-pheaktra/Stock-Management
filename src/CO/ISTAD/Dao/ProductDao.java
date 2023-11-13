@@ -14,6 +14,4 @@ public interface ProductDao {
     Product UpdateById(Product product);
     Product DeleteById(Long id);
     List<Product> selectByName(String name);
-
-
 }

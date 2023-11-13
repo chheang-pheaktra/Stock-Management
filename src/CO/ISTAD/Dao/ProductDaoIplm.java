@@ -36,7 +36,7 @@ public class ProductDaoIplm implements ProductDao {
                 .filter(pro->pro.getId().equals(product.getId()))
                 .map(newPro->product)
                 .findFirst()
-                .orElseThrow(()->new ProductNotFound(String.format("" +
+                .orElseThrow(()->new ProductNotFound(String.format(
                         "Product ID %s does not exist in DB",product.getId())));
     }
 
@@ -45,7 +45,7 @@ public class ProductDaoIplm implements ProductDao {
         Product foundProduct= productDataBase.getProducts().stream()
                 .filter(pro->pro.getId().equals(id))
                 .findFirst()
-                .orElseThrow(()->new ProductNotFound(String.format("" +
+                .orElseThrow(()->new ProductNotFound(String.format(
                         "Product ID %s does not exist in DB",id)));
         productDataBase.getProducts().remove(foundProduct);
         return foundProduct;
