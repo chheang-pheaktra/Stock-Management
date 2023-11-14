@@ -16,12 +16,21 @@ public class MainApplication {
         productController=singleton.controller();
     }
     private void run(){
-        menuController.index();
-        System.out.println("Enter Option: ");
-        int option = Integer.parseInt(scanner.nextLine());
-        switch (option){
-            case 1 ->productController.index();
-            default -> throw  new IllegalStateException();
+        try {
+            while (true) {
+                menuController.index();
+                System.out.println("Enter Option: ");
+                int option = Integer.parseInt(scanner.nextLine());
+                switch (option) {
+                    case 1 -> productController.index();
+                    case 2 -> productController.Create();
+                    case 3 -> productController.delete();
+                    case 4 -> productController.update();
+                    default -> throw new IllegalStateException();
+                }
+            }
+        }catch (Exception e){
+            System.out.println(e.getMessage());
         }
     }
     public static void main(String[] args) {
